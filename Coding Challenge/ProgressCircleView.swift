@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct ProgressCircleView: View {
-    @State var progress:Double
-    let max_progress:Double
+    @State var progress:Int
+    let max_progress:Int
     let name:String
     let icon:String
     var body: some View {
@@ -20,7 +20,7 @@ struct ProgressCircleView: View {
                 .rotationEffect(.degrees(116))
                 .foregroundColor(Color("detailGray"))
             Circle()
-                .trim(from:0.0, to:(self.progress/self.max_progress)*0.85)
+                .trim(from:0.0, to:(Double(self.progress)/Double(self.max_progress))*0.85)
                 .stroke(lineWidth:7.0)
                 .rotationEffect(.degrees(116))
                 .foregroundColor(Color("turquoiseLight"))
