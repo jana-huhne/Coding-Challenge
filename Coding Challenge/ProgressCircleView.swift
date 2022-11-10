@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ProgressCircleView: View {
-    @State var progress:Int
+    @Binding var progress:Int
     let max_progress:Int
     let name:String
     let icon:String
@@ -24,12 +24,15 @@ struct ProgressCircleView: View {
                 .stroke(lineWidth:7.0)
                 .rotationEffect(.degrees(116))
                 .foregroundColor(Color("turquoiseLight"))
+            VStack(spacing: 0){
+                Spacer()
+                //VStack{
+                    Text("\(progress)").font(.largeTitle).bold()
+                    Text(name).foregroundColor(Color("textGray"))
+                //}//.frame(maxHeight: .infinity, alignment: .center)
+                Spacer()
+                Image(systemName: icon).foregroundColor(Color("turquoiseLight"))//.frame(maxHeight: .infinity, alignment: .bottom)
+            }
         }
-    }
-}
-
-struct ProgressCircleView_Previews: PreviewProvider {
-    static var previews: some View {
-        ProgressCircleView(progress:26, max_progress: 30, name: "km/h", icon:"speedometer")
     }
 }

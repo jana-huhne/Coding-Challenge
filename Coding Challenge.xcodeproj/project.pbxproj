@@ -13,6 +13,8 @@
 		9812AFB9291D1DD2005C0523 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9812AFB8291D1DD2005C0523 /* Preview Assets.xcassets */; };
 		98EBD238291D23C500897C72 /* TimelineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98EBD237291D23C500897C72 /* TimelineView.swift */; };
 		98EBD23A291D23DD00897C72 /* ProgressCircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98EBD239291D23DD00897C72 /* ProgressCircleView.swift */; };
+		98EBD23C291D3E5300897C72 /* TrainingSessionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98EBD23B291D3E5300897C72 /* TrainingSessionView.swift */; };
+		98EBD240291D402700897C72 /* TrainingSessionData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98EBD23F291D402700897C72 /* TrainingSessionData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +25,8 @@
 		9812AFB8291D1DD2005C0523 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		98EBD237291D23C500897C72 /* TimelineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineView.swift; sourceTree = "<group>"; };
 		98EBD239291D23DD00897C72 /* ProgressCircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressCircleView.swift; sourceTree = "<group>"; };
+		98EBD23B291D3E5300897C72 /* TrainingSessionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingSessionView.swift; sourceTree = "<group>"; };
+		98EBD23F291D402700897C72 /* TrainingSessionData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingSessionData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,12 +59,14 @@
 		9812AFB0291D1DD0005C0523 /* Coding Challenge */ = {
 			isa = PBXGroup;
 			children = (
+				98EBD23F291D402700897C72 /* TrainingSessionData.swift */,
 				9812AFB1291D1DD0005C0523 /* Coding_ChallengeApp.swift */,
 				9812AFB3291D1DD0005C0523 /* ContentView.swift */,
 				9812AFB5291D1DD2005C0523 /* Assets.xcassets */,
 				9812AFB7291D1DD2005C0523 /* Preview Content */,
 				98EBD237291D23C500897C72 /* TimelineView.swift */,
 				98EBD239291D23DD00897C72 /* ProgressCircleView.swift */,
+				98EBD23B291D3E5300897C72 /* TrainingSessionView.swift */,
 			);
 			path = "Coding Challenge";
 			sourceTree = "<group>";
@@ -144,6 +150,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				9812AFB4291D1DD0005C0523 /* ContentView.swift in Sources */,
+				98EBD23C291D3E5300897C72 /* TrainingSessionView.swift in Sources */,
+				98EBD240291D402700897C72 /* TrainingSessionData.swift in Sources */,
 				98EBD23A291D23DD00897C72 /* ProgressCircleView.swift in Sources */,
 				98EBD238291D23C500897C72 /* TimelineView.swift in Sources */,
 				9812AFB2291D1DD0005C0523 /* Coding_ChallengeApp.swift in Sources */,

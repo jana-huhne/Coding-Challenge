@@ -15,7 +15,7 @@ struct ContentView: View {
         passed_seconds: 380,
         level_history: [Int] (repeating: 13, count: 380),
         watt_history: [Int] (repeating: 181, count: 380),
-        bpm: 143, rpm: 99, kmh: 26
+        bpm: 143, rpm: 99, kmh: 26, km : 4.2, kcal : 103
     );
     
     var body: some View {
