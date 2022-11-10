@@ -77,14 +77,3 @@ struct TrainingSessionView: View {
     }
     }
 
-
-struct TrainingSessionView_Previews: PreviewProvider {
-    static var previews: some View {
-        TrainingSessionView(data: TrainingSessionData(
-            passed_seconds: 380,
-            level_history: [Int] (repeating: 13, count: 380),
-            watt_history: [Int] (repeating: 181, count: 380),
-            bpm: 143, rpm: 99, kmh: 26, km : 4.2, kcal : 103
-        ))
-    }
-}

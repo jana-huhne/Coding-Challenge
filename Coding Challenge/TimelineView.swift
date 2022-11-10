@@ -28,6 +28,12 @@ struct TimelineView: View {
         case HistoryData.Watt: return InterpolationMethod.cardinal
         }
     }
+    private var yAxisLabels : [Int]{
+        switch(self.type){
+        case HistoryData.Level: return [0,8,16,24]
+        case HistoryData.Watt: return [0,200,400,600]
+        }
+    }
     
     var body: some View {
         ZStack{
@@ -40,7 +46,16 @@ struct TimelineView: View {
                         LineMark(x: .value("time", item.x), y: .value(type.rawValue, item.y)).foregroundStyle(self.color)
                         AreaMark(x: .value("time", item.x), y: .value(type.rawValue, item.y)).foregroundStyle(self.color.opacity(0.3))
                     }
-                }.frame(minWidth: 880)
+                }.chartYAxis{
+                    AxisMarks(position: .leading, values: yAxisLabels){ _ in
+                        AxisValueLabel().foregroundStyle(Color("textGray")).font(.headline)
+                        AxisGridLine().foregroundStyle(Color("textGray"))
+                    }
+                }
+                .chartXScale(domain:0...TrainingSessionData.max_time)
+                .padding(.top, 30.0)
+                .padding(.leading, 15.0)
+                .frame(minWidth: 880)
                 VStack(alignment: .leading){
                     Button(action : {print("I'm supposed to change the history view but I don't do anything hehe")}){
                         HStack{

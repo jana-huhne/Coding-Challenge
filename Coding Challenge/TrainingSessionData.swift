@@ -13,6 +13,7 @@ class TrainingSessionData : ObservableObject{
     static let max_rpm = 120
     static let max_watt = 200
     static let max_bpm = 220
+    static let max_time = 1200
     
     //changing data
     @Published var passed_seconds : Int = 0
