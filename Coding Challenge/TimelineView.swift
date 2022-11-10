@@ -40,12 +40,13 @@ struct TimelineView: View {
             Color("backgroundGrayLight")
             HStack{
                 Chart {
-                    ForEach(history_data().enumerated().map{
+                    ForEach(all_data().enumerated().map{
                         IntData(x: $0, y:$1)
                     }){ item in
                         LineMark(x: .value("time", item.x), y: .value(type.rawValue, item.y)).foregroundStyle(self.color)
                         AreaMark(x: .value("time", item.x), y: .value(type.rawValue, item.y)).foregroundStyle(self.color.opacity(0.3))
                     }
+                    RuleMark(x: .value("curent time", history_data().count)).foregroundStyle(Color("turquoiseLight"))
                 }.chartYAxis{
                     AxisMarks(position: .leading, values: yAxisLabels){ _ in
                         AxisValueLabel().foregroundStyle(Color("textGray")).font(.headline)
@@ -91,6 +92,14 @@ struct TimelineView: View {
     private func history_data() -> [Int] {
         switch(self.type){
         case HistoryData.Level: return data.level_history
+        case HistoryData.Watt: return data.watt_history
+        }
+    }
+    
+    //data together with predicted values if avaialble
+    private func all_data() -> [Int] {
+        switch(self.type){
+        case HistoryData.Level: return data.level_history + data.level_predicted
         case HistoryData.Watt: return data.watt_history
         }
     }
