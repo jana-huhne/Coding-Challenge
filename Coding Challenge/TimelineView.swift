@@ -6,25 +6,49 @@
 //
 
 import SwiftUI
+import Charts
+
+
 
 struct TimelineView: View {
     
     @ObservedObject var data : TrainingSessionData
-    var type : HistoryData
+    @State var type : HistoryData
+    
+    //parameters specific to the type of plotted data
+    private var color : Color{
+        switch(self.type){
+        case HistoryData.Level: return Color("turquoiseLight")
+        case HistoryData.Watt: return Color("red")
+        }
+    }
+    private var interpolationMethod: InterpolationMethod{
+        switch(self.type){
+        case HistoryData.Level: return InterpolationMethod.stepStart
+        case HistoryData.Watt: return InterpolationMethod.cardinal
+        }
+    }
     
     var body: some View {
         ZStack{
             Color("backgroundGrayLight")
             HStack{
-                Rectangle() //TODO add diagram
-                VStack{
+                Chart {
+                    ForEach(history_data().enumerated().map{
+                        IntData(x: $0, y:$1)
+                    }){ item in
+                        LineMark(x: .value("time", item.x), y: .value(type.rawValue, item.y)).foregroundStyle(self.color)
+                        AreaMark(x: .value("time", item.x), y: .value(type.rawValue, item.y)).foregroundStyle(self.color.opacity(0.3))
+                    }
+                }.frame(minWidth: 880)
+                VStack(alignment: .leading){
                     Button(action : {print("I'm supposed to change the history view but I don't do anything hehe")}){
                         HStack{
                             Text(type.rawValue).font(.headline)
                             Spacer()
                             Image(systemName: "chevron.down")
-                        }
-                    }.padding().background(Color("turquoise")).cornerRadius(5)
+                        }.padding()
+                    }.background(Color("turquoise")).cornerRadius(5)
                     HStack{
                         Text("\(history_data().last!)").font(.largeTitle)
                         Text(type.rawValue).foregroundColor(Color("textGray"))
@@ -41,6 +65,13 @@ struct TimelineView: View {
         }.cornerRadius(15)
     }
     
+    //data type for the chart to work on because tuples aren't identifiable
+    struct IntData : Identifiable{
+        let id = UUID()
+        let x : Int
+        let y : Int
+    }
+    
     
     private func history_data() -> [Int] {
         switch(self.type){
@@ -48,6 +79,5 @@ struct TimelineView: View {
         case HistoryData.Watt: return data.watt_history
         }
     }
-    
     
 }

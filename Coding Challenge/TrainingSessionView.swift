@@ -2,8 +2,6 @@
 //  TrainingSessionView.swift
 //  Coding Challenge
 //
-//  Created by Muriel Schiefer on 10.11.22.
-//
 
 import SwiftUI
 
@@ -21,7 +19,7 @@ struct TrainingSessionView: View {
                         Image(systemName: "pause.fill")
                         Text("Pause/Stop")
                     }.padding().background(Color("turquoise")).cornerRadius(5).frame(maxWidth: .infinity, alignment: .leading)
-                    Text("\( Int(data.passed_seconds) / 60):\(data.passed_seconds % 60)").font(.largeTitle).bold().frame(maxWidth: .infinity, alignment: .leading)
+                    Text("\( Int(data.passed_seconds) / 60):\(data.passed_seconds % 60)").font(.system(size: 50)).bold().frame(maxWidth: .infinity, alignment: .leading)
                 }
                 //Level timeline diagram
                 TimelineView(data: self.data, type: HistoryData.Level).padding(.vertical)
