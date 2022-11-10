@@ -36,3 +36,9 @@ class TrainingSessionData : ObservableObject{
         self.kcal = kcal
     }
 }
+
+enum HistoryData : String{
+    case Level
+    case Watt
+}
+

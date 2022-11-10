@@ -24,9 +24,9 @@ struct TrainingSessionView: View {
                     Text("\( Int(data.passed_seconds) / 60):\(data.passed_seconds % 60)").font(.largeTitle).bold().frame(maxWidth: .infinity, alignment: .leading)
                 }
                 //Level timeline diagram
-                TimelineView().padding(.vertical)
+                TimelineView(data: self.data, type: HistoryData.Level).padding(.vertical)
                 //Watt timeline Diagram
-                TimelineView().padding(.vertical)
+                TimelineView(data: self.data, type: HistoryData.Watt).padding(.vertical)
                 HStack{
                     ProgressCircleView(progress:$data.kmh, max_progress: TrainingSessionData.max_kmh, name: "km/h", icon:"speedometer").padding(30.0)
                     Spacer()

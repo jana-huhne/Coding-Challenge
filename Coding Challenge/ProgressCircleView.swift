@@ -16,12 +16,12 @@ struct ProgressCircleView: View {
         ZStack{
             Circle()
                 .trim(from:0.0, to:0.85)
-                .stroke(lineWidth:7.0)
+                .stroke(lineWidth:3.0)
                 .rotationEffect(.degrees(116))
                 .foregroundColor(Color("detailGray"))
             Circle()
                 .trim(from:0.0, to:(Double(self.progress)/Double(self.max_progress))*0.85)
-                .stroke(lineWidth:7.0)
+                .stroke(lineWidth:3.0)
                 .rotationEffect(.degrees(116))
                 .foregroundColor(Color("turquoiseLight"))
             VStack(spacing: 0){
